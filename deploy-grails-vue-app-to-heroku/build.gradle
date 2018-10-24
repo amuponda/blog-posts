@@ -1,0 +1,58 @@
+/*
+* https://github.com/heroku/heroku-gradle
+* could be used in ci server to deploy to heroku automatically
+*/
+
+plugins {
+  id "com.heroku.sdk.heroku-gradle" version "1.0.4"
+}
+
+allprojects {
+    version = "0.1"    
+}
+
+heroku {
+    appName = "floating-shore-99282"
+    jdkVersion = "1.8"
+    buildpacks = ["heroku/jvm"]
+    processTypes(web: "java -Dserver.port=\$PORT \$JAVA_OPTS -jar build/server-${project.version}.jar".toString())
+    //configVars("GRADLE_TASK": "assembleServerAndClient")
+}
+
+task copyClientResources(dependsOn: ':client:build') { 
+    group = 'build'
+    description = 'Copy client resources into server'
+    doLast {
+        copy {
+            from "${project(':client').buildDir}/../dist/"
+            into "${project(':server').buildDir}/resources/main/public"
+        }
+        copy {
+            from project(':client').buildDir.absolutePath
+            into "${project(':server').buildDir}/resources/main/public"
+        }
+    }
+}
+
+task assembleServerAndClient(dependsOn: ['copyClientResources', ':server:assemble']) {  
+    group = 'build'
+    description = 'Build combined server & client JAR'
+
+    doLast {
+        copy {
+            from fileTree(dir: "${project(':server').buildDir}/libs/") 
+            into "$rootDir/build/"
+        }
+
+        logger.quiet "JAR generated at $rootDir/build/. It combines the server and client projects."
+    }
+}
+task(":server:assemble").mustRunAfter(copyClientResources)
+deployHeroku.dependsOn(assembleServerAndClient)
+
+
+
+task stage {
+  dependsOn assembleServerAndClient
+}
+
