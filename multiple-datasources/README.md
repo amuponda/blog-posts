@@ -17,4 +17,4 @@ ENGINE = InnoDB;
 * Done
 
 ## Related Blog Post:
-[Working with multiple datasources and NamedParameterJdbcTemplate in Spring Boot 2.0.5](https://www.amuponda.com/2018/10/21/working-with-mul…pring-boot-2-0-5/)
+[Working with multiple datasources and NamedParameterJdbcTemplate in Spring Boot 2.0.5](https://www.amuponda.com/2018/10/21/working-with-multiple-datasources-and-namedparameterjdbctemplate-in-spring-boot-2-0-5/)
