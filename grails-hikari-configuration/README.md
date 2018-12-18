@@ -5,4 +5,4 @@ Have a look at the build.gradle and application.yml files for the required Hikar
 grails run-app
 ```
 #### Related Blog Post
- [Configuring HikariCP in a Grails 3 Application](https://www.amuponda.com/2018/12/10/configuring-hika…ls-3-application/)
+ [Configuring HikariCP in a Grails 3 Application](https://www.amuponda.com/2018/12/10/configuring-hikaricp-in-a-grails-3-application/)
