@@ -37,4 +37,4 @@ git push heroku master
 ```
 
 ## Related Blog Post:
-[Deploying a grails vue app to heroku using gradle]( https://www.amuponda.com/2018/11/06/deploying-a-grai…oku-using-gradle/)
+[Deploying a grails vue app to heroku using gradle](https://www.amuponda.com/2018/11/06/deploying-a-grails-vue-app-to-heroku-using-gradle/)
