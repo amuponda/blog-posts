@@ -1,0 +1,19 @@
+task copyClientResources(dependsOn: ':client:build', type: Copy) { 
+    group = 'build'
+    description = 'Copy client resources into server'
+    from "${project(':client').projectDir}/dist"
+    into "${project(':server').buildDir}/resources/main/public"
+}
+task assembleServerAndClient(type: Copy, dependsOn: ['copyClientResources', ':server:assemble']) { 
+    group = 'build'
+    description = 'Build combined server & client JAR/WAR'
+    from fileTree(dir: "${project(':server').buildDir}/libs/") 
+    into "${rootProject.buildDir}"
+    doLast {
+        logger.quiet "JAR/WAR generated at ${rootProject.buildDir}. It combines the server and client projects."
+    }
+}
+project(":server").getTasksByName('assemble', true)[0].mustRunAfter(copyClientResources) 
+
+// access via TaskContainer fails
+// project(":server").getTasks().getByName('assemble').mustRunAfter(copyClientResources) 
