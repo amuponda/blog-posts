@@ -74,7 +74,7 @@ dependencies {
     testRuntime "org.seleniumhq.selenium:selenium-firefox-driver:3.14.0"
     
     compile 'com.agileorbit:schwartz:2.0.0.RC1'
-    // force version 2.2.3 of the 
+    // force version 2.2.3 of quartz
     String quartzVersion = '2.2.3'
     compile 'org.quartz-scheduler:quartz:' + quartzVersion, {
         exclude module: 'c3p0'
