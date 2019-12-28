@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: micronaut.scheduled.exceptions
+---
+testFramework: spock
+sourceLanguage: groovy
