@@ -1,0 +1,10 @@
+micronaut:
+  application:
+    name: micronaut-continous-build
+
+---
+micronaut:
+  io:
+    watch:
+      paths: src/main
+      restart: true
