@@ -1,0 +1,7 @@
+micronaut:
+  server:
+    port: ${random.port}
+---
+#micronaut:
+#  server:
+#    port: -1

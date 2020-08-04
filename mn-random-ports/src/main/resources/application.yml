@@ -1,0 +1,7 @@
+micronaut:
+  application:
+    name: mnRandomPorts
+---
+micronaut:
+  server:
+    port: 8086
