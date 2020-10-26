@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: mn.embedded.redis
+testFramework: spock
+sourceLanguage: groovy
+buildTool: gradle
+features: [app-name, gradle, groovy, groovy-application, http-client, logback, netty-server, readme, redis-lettuce, shade, spock, yaml]

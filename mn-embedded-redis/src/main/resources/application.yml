@@ -1,0 +1,5 @@
+micronaut:
+  application:
+    name: mnEmbeddedRedis
+
+redis.uri: redis://localhost:6379/0

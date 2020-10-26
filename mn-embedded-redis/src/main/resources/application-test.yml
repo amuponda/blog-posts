@@ -1,0 +1,1 @@
+redis.uri: redis://localhost:${random.port}/0

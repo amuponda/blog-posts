@@ -1,0 +1,41 @@
+plugins {
+    id "groovy"
+    id "com.github.johnrengelman.shadow" version "6.0.0"
+    id "io.micronaut.application" version '1.0.3'
+}
+
+version "0.1"
+group "mn.embedded.redis"
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+micronaut {
+    runtime "netty"
+    testRuntime "spock2"
+    processing {
+        incremental true
+        annotations "mn.embedded.redis.*"
+    }
+}
+
+dependencies {
+    implementation("io.micronaut:micronaut-validation")
+    implementation("io.micronaut.groovy:micronaut-runtime-groovy")
+    implementation("io.micronaut:micronaut-http-client")
+    implementation("io.micronaut.redis:micronaut-redis-lettuce")
+    testImplementation("com.github.kstyrc:embedded-redis:0.6")
+    runtimeOnly("ch.qos.logback:logback-classic")
+}
+
+mainClassName = "mn.embedded.redis.Application"
+java {
+    sourceCompatibility = JavaVersion.toVersion('1.8')
+    targetCompatibility = JavaVersion.toVersion('1.8')
+}
+
+
+
+
