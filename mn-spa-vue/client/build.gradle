@@ -1,0 +1,27 @@
+plugins {
+    id "com.github.node-gradle.node" version "2.2.4"
+}
+
+node {
+    version = '10.13.0' // https://nodejs.org/en/
+    yarnVersion = '1.22.5' // https://yarnpkg.com/en/
+    download = true
+}
+
+task serve(type: YarnTask, dependsOn: 'yarn') {
+    group = 'application'
+    description = 'Run the client app'
+    args = ['run', 'serve']
+}
+
+task build(type: YarnTask, dependsOn: 'yarn') {
+    group = 'build'
+    description = 'Build the client bundle'
+    args = ['run', 'build']
+}
+
+task lint(type: YarnTask, dependsOn: 'yarn') {
+    group = 'build'
+    description = 'Run eslint'
+    args = ['run', 'lint']
+}

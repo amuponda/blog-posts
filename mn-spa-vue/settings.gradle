@@ -1,0 +1,3 @@
+rootProject.name = 'mn-spa-vue'
+include 'client'
+include 'server'

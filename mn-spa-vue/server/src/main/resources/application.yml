@@ -1,0 +1,18 @@
+micronaut:
+  application:
+    name: server
+
+---
+micronaut:
+  server:
+    cors:
+      enabled: true
+
+---
+micronaut:
+  router:
+    static-resources:
+      default:
+        enabled: true
+        mapping: "/**"
+        paths: "classpath:public"
