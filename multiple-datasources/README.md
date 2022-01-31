@@ -17,4 +17,4 @@ ENGINE = InnoDB;
 * Done
 
 ## Related Blog Post:
-[Working with multiple datasources and NamedParameterJdbcTemplate in Spring Boot 2.0.5](https://www.amuponda.com/2018/10/21/working-with-multiple-datasources-and-namedparameterjdbctemplate-in-spring-boot-2-0-5/)
+[Using SQL Changelogs with the Micronaut Liquibase library](https://www.amuponda.com/2022/01/31/using-sql-changelogs-with-the-micronaut-liquibase-library/)
